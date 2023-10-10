@@ -1,29 +1,33 @@
 function getComputerChoice() 
 { 
     let choice = Math.random(); 
-    if (choice <= .33) 
+    console.log("randomizing choice...");
+    if (choice <= .33)
+    { 
+        //console.log("Computer chose Rock");
         return "Rock"; 
+    }
     else if (choice <= .66) 
+    {
+        //console.log("Computer chose Paper");
         return "Paper"; 
+    }
     else 
-        return "Scissors"; 
+    {
+        //console.log("Computer chose Scissors");
+        return "Scissors";
+    }
+    
 }
 
 function getUserChoice() 
 { 
-    let isValid = 0; 
     let user = prompt("Please type (rock/paper/scissors)"); 
     let userLower = user.toLowerCase(); 
-        while (isValid == 0) 
-        { 
-            if (userLower == 'rock' || userLower == 'paper' || userLower == 'scissors')
-            {
-                isValid = 1; 
-                return user; 
-            }
-
-            user = prompt("Invalid input. Please type (rock/paper/scissors)"); 
-        }
+    if (userLower == 'rock' || userLower == 'paper' || userLower == 'scissors')
+    {
+        return user; 
+    }
 }
 
 
@@ -39,33 +43,33 @@ function playRound (computerChoice, userChoice) {
         return outcome;
     }
 
-    switch (userChoice.toLowerCase()) 
-    { 
-        case 'rock': 
-            if (computerChoice.toLowerCase() == 'scissors') {
-                outcome = 2;
-                return outcome; 
-            }
-        break; 
+    else { 
+        switch (userChoice.toLowerCase()) 
+        { 
+            case 'rock': 
+                if (computerChoice.toLowerCase() == 'scissors') {
+                    outcome = 2;
+                    return outcome; 
+                }
+            break; 
 
-        case 'paper': 
-            if (computerChoice.toLowerCase() == 'rock') {
-                outcome = 2; 
-                return outcome;
-            }
-        break; 
+            case 'paper': 
+                if (computerChoice.toLowerCase() == 'rock') {
+                    outcome = 2; 
+                    return outcome;
+                }
+            break; 
 
-        case 'scissors': 
-            if (computerChoice.toLowerCase() == 'paper') {
-                outcome = 2; 
-                return outcome;
-            }
-        break; 
+            case 'scissors': 
+                if (computerChoice.toLowerCase() == 'paper') {
+                    outcome = 2; 
+                    return outcome;
+                }
+            break; 
+        }
+    } 
 
-        default: 
-            return outcome;
-    }
-
+    return outcome; 
 }
 
 
@@ -92,8 +96,11 @@ function game()
             console.log(`You lost. ${computerChoice} beats ${userChoice}`);
             ++compWins;  
         }
+        if ((compWins+userWins < 5))
+        {
         userChoice = getUserChoice(); 
         computerChoice = getComputerChoice();
+        }
     }
 
     if (compWins > userWins) 
