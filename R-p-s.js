@@ -1,29 +1,28 @@
+//Get computer choice based on random number's range 
 function getComputerChoice() 
 { 
     let choice = Math.random(); 
     console.log("randomizing choice...");
     if (choice <= .33)
     { 
-        //console.log("Computer chose Rock");
         return "rock"; 
     }
     else if (choice <= .66) 
     {
-        //console.log("Computer chose Paper");
         return "paper"; 
     }
     else 
     {
-        //console.log("Computer chose Scissors");
         return "scissors";
     }
     
 }
 
+//Get user's choice
 function getUserChoice() 
 { 
     let user = prompt("Please type (rock/paper/scissors)"); 
-    let userLower = user.toLowerCase(); 
+    let userLower = user.toLowerCase(); //Make case unsensitive
     while ((userLower.localeCompare("rock") !== 0) && (userLower.localeCompare("paper") !== 0) 
         && (userLower.localeCompare("scissors") !== 0)) 
     { 
@@ -34,77 +33,64 @@ function getUserChoice()
     return userLower; 
 }
 
-
-let computerChoice= getComputerChoice();
-let userChoice = getUserChoice();
-
+//Play a round. Outcomes: 1=tie, 2=user wins, 3=computer wins.
 function playRound (computerChoice, userChoice) {
-    let outcome = 3; 
 
     if (computerChoice == userChoice)
     {
-        outcome = 1;
-        return outcome;
+        return 1;
     }
 
     else { 
+        //All cases where user wins
         switch (userChoice) 
         { 
             case 'rock': 
                 if (computerChoice == 'scissors') {
-                    outcome = 2;
-                    return outcome; 
+                    return 2; 
                 }
             break; 
 
             case 'paper': 
                 if (computerChoice == 'rock') {
-                    outcome = 2; 
-                    return outcome;
+                    return 2;
                 }
             break; 
 
             case 'scissors': 
                 if (computerChoice == 'paper') {
-                    outcome = 2; 
-                    return outcome;
+                    return 2;
                 }
             break; 
         }
     } 
 
-    return outcome; 
+    //Computer wins
+    return 3; 
 }
 
-
+//Game loop, play for 5 valid rounds.
 function game() 
 { 
     let compWins = 0; 
     let userWins = 0; 
-    let gameOut;
+    let gameOut, userChoice, computerChoice;
 
     while ((compWins + userWins) < 5) {
-
+        userChoice = getUserChoice(); 
+        computerChoice = getComputerChoice();
         gameOut = playRound(computerChoice, userChoice); 
 
-        if (gameOut == 1) 
-            console.log(`You both chose ${userChoice}, it's a tie.`); 
-
+        if (gameOut == 1) {console.log(`You both chose ${userChoice}, it's a tie.`);}
         else if(gameOut == 2) 
         {
             console.log(`You win! ${userChoice} beats ${computerChoice}`);
             ++userWins; 
         }
-        else if (gameOut == 3) 
+        else
         {
             console.log(`You lost. ${computerChoice} beats ${userChoice}`);
             ++compWins;  
-        }
-
-        if (compWins+userWins < 5)
-        {
-            userChoice = getUserChoice(); 
-            computerChoice = getComputerChoice();
         }
     }
 
