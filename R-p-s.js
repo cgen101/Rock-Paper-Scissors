@@ -7,62 +7,35 @@ document.addEventListener("DOMContentLoaded", function() {
     startButton.addEventListener("click", function() {
         lobbyPage.style.display = "none";
         gamePage.style.display = "grid";
-
+        game();
     }); 
 })
 
 //Get computer choice based on random number's range 
-function getComputerChoice() 
-{ 
+function getComputerChoice() { 
     console.log("randomizing choice...");
     let choices = ['rock', 'paper', 'scissors']
-    return choices[Math.floor(Math.random() * choices.length)]
-    
+    return choices[Math.floor(Math.random() * choices.length)]    
 }
 
-//Get user's choice
-function getUserChoice() 
-{ 
-    let user = prompt("Please type (rock/paper/scissors)"); 
-    let userLower = user.toLowerCase(); //Make case unsensitive
-    while ((userLower.localeCompare("rock") !== 0) && (userLower.localeCompare("paper") !== 0) 
-        && (userLower.localeCompare("scissors") !== 0)) 
-    { 
-        user = prompt("ERROR: invalid input. Please type (rock/paper/scissors)"); 
-        userLower = user.toLowerCase(); 
-    }
-
-    return userLower; 
-}
 
 //Play a round. Outcomes: 1=tie, 2=user wins, 3=computer wins.
 function playRound (computerChoice, userChoice) {
 
-    if (computerChoice == userChoice)
-    {
-        return 1;
-    }
-
+    if (computerChoice == userChoice){ return 1; }
     else { 
         //All cases where user wins
-        switch (userChoice) 
-        { 
+        switch (userChoice) { 
             case 'rock': 
-                if (computerChoice == 'scissors') {
-                    return 2; 
-                }
+                if (computerChoice == 'scissors') {return 2;}
             break; 
 
             case 'paper': 
-                if (computerChoice == 'rock') {
-                    return 2;
-                }
+                if (computerChoice == 'rock') {return 2;}
             break; 
 
             case 'scissors': 
-                if (computerChoice == 'paper') {
-                    return 2;
-                }
+                if (computerChoice == 'paper') {return 2;}
             break; 
         }
     } 
@@ -72,34 +45,56 @@ function playRound (computerChoice, userChoice) {
 }
 
 //Game loop, play for 5 valid rounds.
-function game() 
-{ 
+function game() {
     let compWins = 0; 
     let userWins = 0; 
-    let gameOut, userChoice, computerChoice;
+    let rockChoice = document.getElementById("rock");
+    let paperChoice = document.getElementById("paper");
+    let scissorsChoice = document.getElementById("scissors");
+    let winner;
+        rockChoice.addEventListener("click", function() {
+            winner=playRound(getComputerChoice(), "rock");
+            if(winner==1) {console.log("tie");}
+            else if(winner==2){console.log(`you win`); userWins++;}
+            else {console.log(`You lost.`); compWins++;}
 
-    while ((compWins + userWins) < 5) {
-        userChoice = getUserChoice(); 
-        computerChoice = getComputerChoice();
-        gameOut = playRound(computerChoice, userChoice); 
+            if ((compWins+userWins==5)&&(compWins > userWins)) {
+                console.log("Computer wins! :(");
+                compWins=0; userWins=0;}
+            else if ((compWins+userWins==5)&&(compWins < userWins)){
+                console.log("Humans FTW!!!!!!!");
+                compWins=0; userWins=0;}
+        }); 
+        paperChoice.addEventListener("click", function() {
+            winner=playRound(getComputerChoice(), "paper");
+            if(winner==1) {console.log("tie");}
+            else if(winner==2){console.log(`you win`); userWins++;}
+            else {console.log(`You lost.`); compWins++;}
 
-        if (gameOut == 1) {console.log(`You both chose ${userChoice}, it's a tie.`);}
-        else if(gameOut == 2) 
-        {
-            console.log(`You win! ${userChoice} beats ${computerChoice}`);
-            ++userWins; 
-        }
-        else
-        {
-            console.log(`You lost. ${computerChoice} beats ${userChoice}`);
-            ++compWins;  
-        }
-    }
+            if ((compWins+userWins==5)&&(compWins > userWins)) {
+                console.log("Computer wins! :(");
+                compWins=0; userWins=0;}
+            else if ((compWins+userWins==5)&&(compWins < userWins)){
+                console.log("Humans FTW!!!!!!!");
+                compWins=0; userWins=0;}
+        }); 
+        scissorsChoice.addEventListener("click", function() {
+            winner=playRound(getComputerChoice(), "scissors");
+            if(winner==1) {console.log("tie");}
+            else if(winner==2){console.log(`you win`); userWins++;}
+            else {console.log(`You lost.`); compWins++;}
 
-    if (compWins > userWins) 
-        console.log("Computer wins! :("); 
-    else 
-        console.log("Humans FTW!!!!!!!"); 
-}
+            if ((compWins+userWins==5)&&(compWins > userWins)) {
+                console.log("Computer wins! :(");
+                compWins=0; userWins=0;}
+            else if ((compWins+userWins==5)&&(compWins < userWins)){
+                console.log("Humans FTW!!!!!!!");
+                compWins=0; userWins=0;}
+        }); 
+    //let gameOut, userChoice, computerChoice;
 
-game(); 
+
+} 
+
+
+ 
