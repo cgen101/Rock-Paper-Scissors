@@ -1,0 +1,71 @@
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.gameContainer {
+    width: 100%;
+    height: 100%; 
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}   
+.scores { 
+    grid-area: 1 / 1 / 2 / 8; 
+    border-style: solid;
+    display: flex;
+    flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+    align-content: stretch;
+}
+
+.scores div { 
+    border-style: solid;
+    height: 50px;
+    width: 500px;
+}
+
+.battle { 
+    grid-area: 2 / 1 / 6 / 8; 
+    border-style: solid;
+    display: flex; 
+    flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+    align-content: stretch;
+}
+
+.battle #uWeapon, #cpuWeapon { 
+    border-style: solid;
+    height: 350px;
+    width: 400px;
+}
+
+#vs { 
+    border-style: solid;
+    height: 350px;
+    width: 200px;
+}
+
+
+.chooseWeapon { 
+    grid-area: 6 / 1 / 8 / 8; 
+    border-style: solid;
+    display: flex; 
+    flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: center;
+}
+
+.chooseWeapon div { 
+    border-style: solid;
+    height: 150px;
+    width: 150px;
+}
