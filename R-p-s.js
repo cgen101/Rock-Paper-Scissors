@@ -1,20 +1,22 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const lobbyPage = document.getElementById("lobbyPage");
+    const gamePage = document.getElementById("gamePage");
+    const startButton = document.getElementById("start");
+    gamePage.style.display = "none";
+
+    startButton.addEventListener("click", function() {
+        lobbyPage.style.display = "none";
+        gamePage.style.display = "grid";
+
+    }); 
+})
+
 //Get computer choice based on random number's range 
 function getComputerChoice() 
 { 
-    let choice = Math.random(); 
     console.log("randomizing choice...");
-    if (choice <= .33)
-    { 
-        return "rock"; 
-    }
-    else if (choice <= .66) 
-    {
-        return "paper"; 
-    }
-    else 
-    {
-        return "scissors";
-    }
+    let choices = ['rock', 'paper', 'scissors']
+    return choices[Math.floor(Math.random() * choices.length)]
     
 }
 
