@@ -1,3 +1,4 @@
+//Handles hiding the main game content until start button is clicked
 document.addEventListener("DOMContentLoaded", function() {
     const lobbyPage = document.getElementById("lobbyPage");
     const gamePage = document.getElementById("gamePage");
@@ -39,62 +40,54 @@ function playRound (computerChoice, userChoice) {
             break; 
         }
     } 
-
-    //Computer wins
     return 3; 
 }
 
+//global vars for tracking computer vs user score
+let compWins = 0; 
+let userWins = 0; 
+
 //Game loop, play for 5 valid rounds.
 function game() {
-    let compWins = 0; 
-    let userWins = 0; 
     let rockChoice = document.getElementById("rock");
     let paperChoice = document.getElementById("paper");
     let scissorsChoice = document.getElementById("scissors");
     let winner;
-        rockChoice.addEventListener("click", function() {
-            winner=playRound(getComputerChoice(), "rock");
-            if(winner==1) {console.log("tie");}
-            else if(winner==2){console.log(`you win`); userWins++;}
-            else {console.log(`You lost.`); compWins++;}
-
-            if ((compWins+userWins==5)&&(compWins > userWins)) {
-                console.log("Computer wins! :(");
-                compWins=0; userWins=0;}
-            else if ((compWins+userWins==5)&&(compWins < userWins)){
-                console.log("Humans FTW!!!!!!!");
-                compWins=0; userWins=0;}
-        }); 
-        paperChoice.addEventListener("click", function() {
-            winner=playRound(getComputerChoice(), "paper");
-            if(winner==1) {console.log("tie");}
-            else if(winner==2){console.log(`you win`); userWins++;}
-            else {console.log(`You lost.`); compWins++;}
-
-            if ((compWins+userWins==5)&&(compWins > userWins)) {
-                console.log("Computer wins! :(");
-                compWins=0; userWins=0;}
-            else if ((compWins+userWins==5)&&(compWins < userWins)){
-                console.log("Humans FTW!!!!!!!");
-                compWins=0; userWins=0;}
-        }); 
-        scissorsChoice.addEventListener("click", function() {
-            winner=playRound(getComputerChoice(), "scissors");
-            if(winner==1) {console.log("tie");}
-            else if(winner==2){console.log(`you win`); userWins++;}
-            else {console.log(`You lost.`); compWins++;}
-
-            if ((compWins+userWins==5)&&(compWins > userWins)) {
-                console.log("Computer wins! :(");
-                compWins=0; userWins=0;}
-            else if ((compWins+userWins==5)&&(compWins < userWins)){
-                console.log("Humans FTW!!!!!!!");
-                compWins=0; userWins=0;}
-        }); 
-    //let gameOut, userChoice, computerChoice;
-
-
+    rockChoice.addEventListener("click", function() {
+        winner=playRound(getComputerChoice(), "rock");
+        checkWinner(winner);
+        checkEnd();
+    }); 
+    paperChoice.addEventListener("click", function() {
+        winner=playRound(getComputerChoice(), "paper");
+        checkWinner(winner);
+        checkEnd();
+    }); 
+    scissorsChoice.addEventListener("click", function() {
+        winner=playRound(getComputerChoice(), "scissors");
+        checkWinner(winner);
+        checkEnd();
+    }); 
 } 
+
+//Helper fxn, checks who won the round and incriments scores if needed
+function checkWinner(winner) { 
+    if(winner==1) {console.log("tie");}
+    else if(winner==2){console.log(`you win`); userWins++;}
+    else {console.log(`You lost.`); compWins++;}
+}
+
+//Helper fxn, checks if anyone won and displays winner
+function checkEnd() { 
+    if ((compWins+userWins==5)&&(compWins > userWins)) {
+        console.log("Computer wins! :(");
+        compWins=0; userWins=0;
+    }
+    else if ((compWins+userWins==5)&&(compWins < userWins)){
+        console.log("Humans FTW!!!!!!!");
+        compWins=0; userWins=0;
+    }
+}
 
 
  
