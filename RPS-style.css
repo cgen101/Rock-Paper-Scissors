@@ -15,7 +15,6 @@ body, html {
 }   
 .scores { 
     grid-area: 1 / 1 / 2 / 8; 
-    border-style: solid;
     display: flex;
     flex-direction: row;
 	flex-wrap: nowrap;
@@ -25,9 +24,36 @@ body, html {
 }
 
 .scores div { 
-    border-style: solid;
     height: 50px;
-    width: 500px;
+    width: 200px;
+}
+
+
+.you {
+    display: flex;
+    flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+    align-content: center;
+	align-items: center;
+}
+.uScore {
+    text-align: center;
+    padding-top:35px;
+}
+
+.cpu {
+    display: flex;
+    flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+    align-content: center;
+	align-items: center;
+    margin-left:300px;
+}
+.cpuScore {
+    text-align: center;
+    padding-top:35px;
 }
 
 .battle { 
@@ -55,7 +81,6 @@ body, html {
 
 .chooseWeapon { 
     grid-area: 6 / 1 / 8 / 8; 
-    border-style: solid;
     display: flex; 
     flex-direction: row;
 	flex-wrap: nowrap;
@@ -65,7 +90,14 @@ body, html {
 }
 
 .chooseWeapon div { 
-    border-style: solid;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
     height: 150px;
     width: 150px;
+}
+
+.chooseWeapon img { 
+    height: 175px;
+    width: 175px;
 }

@@ -21,8 +21,14 @@
         </div>
         <div class="gameContainer", id="gamePage">
             <div class="scores">
-                <div id="uScore"></div>
-                <div id="cpuScore"></div>
+                <div class="you">
+                    <h1>U:</h1>
+                    <div class="uScore"></div>
+                </div>
+                <div class="cpu">
+                    <h1>CPU:</h1>
+                    <div class="cpuScore"></div>
+                </div>
             </div>
             <div class="battle">
                 <div id="uWeapon"></div>
@@ -30,12 +36,12 @@
                 <div id="cpuWeapon"></div>
             </div>
             <div class="chooseWeapon">
-                <div id="rock"> </div>
-                <div id="paper"></div>
-                <div id="scissors"></div>
+                <div id="rock"><img src="images/rock.png"></div>
+                <div id="paper"><img src="images/paper.png"></div>
+                <div id="scissors"><img src="images/scissors.png"></div>
             </div>
         </div>
         <script src="R-p-s.js"></script>
-        <div id="winFrame"></div>
+        <div id="winFrame"><button id="replay"></button></div>
     </body>
 </html>

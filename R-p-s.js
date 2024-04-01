@@ -1,13 +1,19 @@
+let uScore=document.querySelector('.uScore');
+let cpuScore=document.querySelector('.cpuScore');
+
 //Handles hiding the main game content until start button is clicked
 document.addEventListener("DOMContentLoaded", function() {
     const lobbyPage = document.getElementById("lobbyPage");
     const gamePage = document.getElementById("gamePage");
     const startButton = document.getElementById("start");
     gamePage.style.display = "none";
+    document.getElementById("winFrame").style.display="none";
 
     startButton.addEventListener("click", function() {
         lobbyPage.style.display = "none";
         gamePage.style.display = "grid";
+        uScore.textContent=0;
+        cpuScore.textContent=0;
         game();
     }); 
 })
@@ -72,21 +78,52 @@ function game() {
 
 //Helper fxn, checks who won the round and incriments scores if needed
 function checkWinner(winner) { 
-    if(winner==1) {console.log("tie");}
-    else if(winner==2){console.log(`you win`); userWins++;}
-    else {console.log(`You lost.`); compWins++;}
+    if(winner==1) {
+        console.log("tie");
+    }
+    else if(winner==2) {
+        userWins++;
+        uScore.textContent = userWins;
+        console.log(`you win`); 
+    }
+    else {
+        compWins++;
+        cpuScore.textContent = compWins;
+        console.log(`You lost.`); 
+    }
 }
 
 //Helper fxn, checks if anyone won and displays winner
 function checkEnd() { 
-    if ((compWins+userWins==5)&&(compWins > userWins)) {
+    let whoWon;
+    if ((compWins==5)) {
         console.log("Computer wins! :(");
+        whoWon="comp";
         compWins=0; userWins=0;
+        showEnd(whoWon);
     }
-    else if ((compWins+userWins==5)&&(compWins < userWins)){
+    else if ((userWins==5)){
         console.log("Humans FTW!!!!!!!");
+        whoWon="human"; 
         compWins=0; userWins=0;
+        showEnd(whoWon);
     }
+}
+
+
+function showEnd(whoWon) {
+    const endPage = document.getElementById("winFrame");
+    const gamePage = document.getElementById("gamePage");
+    const replayButton = document.getElementById("replay");
+    gamePage.style.display = "none";
+    endPage.style.display="grid"; 
+
+    replayButton.addEventListener("click", function() {
+        endPage.style.display = "none";
+        uScore.textContent = userWins; 
+        cpuScore.textContent = compWins;
+        gamePage.style.display = "grid";
+    }); 
 }
 
 
