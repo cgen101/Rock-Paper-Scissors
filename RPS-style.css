@@ -28,7 +28,6 @@ body, html {
     width: 200px;
 }
 
-
 .you {
     display: flex;
     flex-direction: row;
@@ -76,6 +75,10 @@ body, html {
     border-style: solid;
     height: 350px;
     width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 

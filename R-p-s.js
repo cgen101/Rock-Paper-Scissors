@@ -1,5 +1,7 @@
 let uScore=document.querySelector('.uScore');
 let cpuScore=document.querySelector('.cpuScore');
+const cpuChoice = document.getElementById("cpuWeapon");
+const userChoice = document.getElementById("uWeapon");
 
 //Handles hiding the main game content until start button is clicked
 document.addEventListener("DOMContentLoaded", function() {
@@ -60,21 +62,29 @@ function game() {
     let scissorsChoice = document.getElementById("scissors");
     let winner;
     rockChoice.addEventListener("click", function() {
+        displayUserChoice("images/rock.png");
         winner=playRound(getComputerChoice(), "rock");
         checkWinner(winner);
         checkEnd();
     }); 
     paperChoice.addEventListener("click", function() {
+        displayUserChoice("images/paper.png");
         winner=playRound(getComputerChoice(), "paper");
         checkWinner(winner);
         checkEnd();
     }); 
     scissorsChoice.addEventListener("click", function() {
+        displayUserChoice("images/scissors.png");
         winner=playRound(getComputerChoice(), "scissors");
         checkWinner(winner);
         checkEnd();
     }); 
 } 
+
+function displayUserChoice(imgSrc) { 
+    userChoice.innerHTML = `<img src="${imgSrc}" alt="User's Choice">`;
+    userChoice.style.opacity = 1;
+}
 
 //Helper fxn, checks who won the round and incriments scores if needed
 function checkWinner(winner) { 
@@ -125,6 +135,8 @@ function showEnd(whoWon) {
         gamePage.style.display = "grid";
     }); 
 }
+
+
 
 
  
