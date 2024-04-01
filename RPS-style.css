@@ -114,5 +114,14 @@ body, html {
     width: 300px;
     height: 300px;
     margin: 10px;
-  
+}
+#cpuWeapon { 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+#cpuWeapon img { 
+    width: 300px;
+    height: 300px;
+    margin: 10px;
 }

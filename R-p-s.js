@@ -30,13 +30,15 @@ function getComputerChoice() {
 
 //Play a round. Outcomes: 1=tie, 2=user wins, 3=computer wins.
 function playRound (computerChoice, userChoice) {
-
+    displayCompChoice(`images/${computerChoice}.png`);
     if (computerChoice == userChoice){ return 1; }
     else { 
         //All cases where user wins
         switch (userChoice) { 
             case 'rock': 
-                if (computerChoice == 'scissors') {return 2;}
+                if (computerChoice == 'scissors') {
+
+                    return 2;}
             break; 
 
             case 'paper': 
@@ -86,6 +88,11 @@ function displayUserChoice(imgSrc) {
     userChoice.style.opacity = 1;
 }
 
+function displayCompChoice(imgSrc) { 
+    cpuChoice.innerHTML = `<img src="${imgSrc}" alt="User's Choice">`;
+    cpuChoice.style.opacity = 1;
+}
+
 //Helper fxn, checks who won the round and incriments scores if needed
 function checkWinner(winner) { 
     if(winner==1) {
@@ -132,6 +139,8 @@ function showEnd(whoWon) {
         endPage.style.display = "none";
         uScore.textContent = userWins; 
         cpuScore.textContent = compWins;
+        userChoice.innerHTML = ''; 
+        cpuChoice.innerHTML = '';
         gamePage.style.display = "grid";
     }); 
 }
