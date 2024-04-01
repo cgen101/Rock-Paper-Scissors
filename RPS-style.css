@@ -104,3 +104,15 @@ body, html {
     height: 175px;
     width: 175px;
 }
+  
+#uWeapon { 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+#uWeapon img { 
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+  
+}
