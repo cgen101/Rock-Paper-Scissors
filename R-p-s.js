@@ -1,5 +1,7 @@
 let uScore=document.querySelector('.uScore');
 let cpuScore=document.querySelector('.cpuScore');
+let vs = document.getElementById("vs");
+let whoWonTitle = document.getElementById("title2");
 const cpuChoice = document.getElementById("cpuWeapon");
 const userChoice = document.getElementById("uWeapon");
 
@@ -96,16 +98,19 @@ function displayCompChoice(imgSrc) {
 //Helper fxn, checks who won the round and incriments scores if needed
 function checkWinner(winner) { 
     if(winner==1) {
+        vs.textContent = "=";
         console.log("tie");
     }
     else if(winner==2) {
         userWins++;
         uScore.textContent = userWins;
+        vs.textContent = ">";
         console.log(`you win`); 
     }
     else {
         compWins++;
         cpuScore.textContent = compWins;
+        vs.textContent = "<";
         console.log(`You lost.`); 
     }
 }
@@ -117,12 +122,16 @@ function checkEnd() {
         console.log("Computer wins! :(");
         whoWon="comp";
         compWins=0; userWins=0;
+        vs.textContent = "VS";
+        whoWonTitle.textContent = "Computers have defeated humanity. Nice."; 
         showEnd(whoWon);
     }
     else if ((userWins==5)){
         console.log("Humans FTW!!!!!!!");
         whoWon="human"; 
         compWins=0; userWins=0;
+        vs.textContent = "VS";
+        whoWonTitle.textContent = "You have saved humanity!"; 
         showEnd(whoWon);
     }
 }
