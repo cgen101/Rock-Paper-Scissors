@@ -3,7 +3,8 @@ body, html {
     margin: 0px;
     padding: 0px;
     background-color: #005792;
-    font-family: "Rajdhani", sans-serif;
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
 }
 
 
@@ -22,7 +23,6 @@ body, html {
     height: 80pt;
     top: 0;
     bottom: 0;
-
     filter: url(#threshold) blur(0.6px);
 }
 
@@ -30,12 +30,9 @@ body, html {
 #text2 {
     position: absolute;
     width: 100%;
-
     font-family: "Raleway", sans-serif;
     font-size: 80pt;
-
     text-align: center;
-
     user-select: none;
 }
 
@@ -46,6 +43,35 @@ body, html {
     align-items: center;
 }
 
+.startButt, .replayButt {
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    border: 2px solid #000;
+    border-radius: 3px;
+    color: #fff;
+    background: #000;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    padding: 12px 20px;
+    text-align:center;
+    transition-duration: .15s;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    width: 150px;
+}
+
+.startButt:hover { 
+    color: #000;
+    background: #fdb44b;
+}
+.replayButt:hover { 
+    color: #000;
+    background: #fdb44b;
+}
 
 
 .scores {
@@ -99,10 +125,11 @@ body, html {
 }
 
 .battle #uWeapon, #cpuWeapon { 
-    border-style: solid;
     background-color: #00204a;
     height: 350px;
     width: 400px;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 #vs { 
@@ -111,7 +138,7 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 50px;
+    font-size: 75px;
     color: #fdb44b;
 }
 
@@ -132,8 +159,11 @@ body, html {
     align-items: center;
     height: 150px;
     width: 150px;
-    background-color: #00204a;
+    cursor: pointer;
+    border-radius: 25px;
 }
+
+
 .chooseWeapon img { 
     height: 175px;
     width: 175px;
@@ -158,4 +188,19 @@ body, html {
     width: 300px;
     height: 300px;
     margin: 10px;
+}
+
+#winFrame { 
+    display: flex; 
+    flex-direction: column;
+    justify-items: center;
+    align-items:center;
+    row-gap: 25px;
+    padding-top: 70px;
+}
+
+#winnerImg { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

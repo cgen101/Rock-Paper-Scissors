@@ -4,7 +4,7 @@ let vs = document.getElementById("vs");
 let whoWonTitle = document.getElementById("title2");
 const cpuChoice = document.getElementById("cpuWeapon");
 const userChoice = document.getElementById("uWeapon");
-
+const winImg = document.getElementById("winnerImg");
 //Handles hiding the main game content until start button is clicked
 document.addEventListener("DOMContentLoaded", function() {
     const lobbyPage = document.getElementById("lobbyPage");
@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function() {
         uScore.textContent=0;
         cpuScore.textContent=0;
         vs.textContent="VS";
+        userChoice.innerHTML= '<img src="images/monk.png">';
+        cpuChoice.innerHTML= '<img src="images/robot.png">';
         game();
     }); 
 })
@@ -122,7 +124,8 @@ function checkEnd() {
         whoWon="comp";
         compWins=0; userWins=0;
         vs.textContent = "VS";
-        whoWonTitle.textContent = "Computers have defeated humanity. Nice."; 
+        whoWonTitle.textContent = "Computers have defeated humanity. Nice..."; 
+        winImg.innerHTML = '<iframe src="https://giphy.com/embed/ySpxjJmsq9gsw" width="480" height="269" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>';
         showEnd(whoWon);
     }
     else if ((userWins==5)){
@@ -130,12 +133,13 @@ function checkEnd() {
         whoWon="human"; 
         compWins=0; userWins=0;
         vs.textContent = "VS";
-        whoWonTitle.textContent = "You have saved humanity!"; 
+        whoWonTitle.textContent = "Humans win! This time..."; 
+        winImg.innerHTML = '<iframe src="https://giphy.com/embed/pFwRzOLfuGHok" width="480" height="298" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>';
         showEnd(whoWon);
     }
 }
 
-
+//Shows ending page with results and replay option 
 function showEnd(whoWon) {
     const endPage = document.getElementById("winFrame");
     const gamePage = document.getElementById("gamePage");
@@ -153,16 +157,25 @@ function showEnd(whoWon) {
     }); 
 }
 
+//Reponsiveness for hover and clicking
 function bigImg(x) {
     x.style.height = "200px";
     x.style.width = "200px";
 }
-
 function normalImg(x) {
     x.style.height = "175px";
     x.style.width = "175px";
 }
+function mouseDown(x) {
+    x.style.background = "#00bbf0";
+    vs.style.fontSize = "90px";
+}
+function mouseUp(x) {
+    x.style.background = "none";
+    vs.style.fontSize = "75px";
+}
 
+//Lobby page animation
 const elts = {
     text1: document.getElementById("text1"),
     text2: document.getElementById("text2")

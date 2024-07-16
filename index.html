@@ -7,7 +7,7 @@
         <meta name="author" content="Chloe Gentry">
         <link href="RPS-style.css" rel="stylesheet">
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
             @import url("https://fonts.googleapis.com/css?family=Raleway:900&display=swap");
         </style>
     </head>
@@ -30,7 +30,7 @@
                     </defs>
                 </svg>
 
-                <button id="start">shoot</button>
+                <button id="start", class="startButt">shoot</button>
         </div>
         <div class="gameContainer", id="gamePage">
             <div class="scores">
@@ -50,14 +50,15 @@
                 <div id="cpuWeapon"></div>
             </div>
             <div class="chooseWeapon">
-                <div id="rock"><img onmouseover="bigImg(this)", onmouseout="normalImg(this)", src="images/rock.png", id="rockimg"></div>
-                <div id="paper"><img onmouseover="bigImg(this)", onmouseout="normalImg(this)", src="images/paper.png", id="paperimg" ></div>
-                <div id="scissors"><img onmouseover="bigImg(this)", onmouseout="normalImg(this)", src="images/scissors.png", id="scissorimg"></div>
+                <div id="rock", onmousedown="mouseDown(this)", onmouseup="mouseUp(this)"><img onmouseover="bigImg(this)", onmouseout="normalImg(this)", src="images/rock.png", id="rockimg"></div>
+                <div id="paper", onmousedown="mouseDown(this)", onmouseup="mouseUp(this)"><img onmouseover="bigImg(this)", onmouseout="normalImg(this)", src="images/paper.png", id="paperimg" ></div>
+                <div id="scissors", onmousedown="mouseDown(this)", onmouseup="mouseUp(this)"><img onmouseover="bigImg(this)", onmouseout="normalImg(this)", src="images/scissors.png", id="scissorimg"></div>
             </div>
         </div>
         <div id="winFrame">
             <h1 id="title2"></h1>
-            <button id="replay">replay</button>
+            <div id="winnerImg"></div>
+            <button id="replay", class="replayButt">replay</button>
         </div>
         <script src="R-p-s.js"></script>
     </body>
