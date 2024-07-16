@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
         gamePage.style.display = "grid";
         uScore.textContent=0;
         cpuScore.textContent=0;
+        vs.textContent="VS";
         game();
     }); 
 })
