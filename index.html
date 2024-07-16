@@ -6,6 +6,9 @@
         <title>Rock, Paper, Scissors</title>
         <meta name="author" content="Chloe Gentry">
         <link href="RPS-style.css" rel="stylesheet">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+        </style>
     </head>
     
     <body>
@@ -37,9 +40,9 @@
                 <div id="cpuWeapon"></div>
             </div>
             <div class="chooseWeapon">
-                <div id="rock"><img src="images/rock.png", id="rockimg"></div>
-                <div id="paper"><img src="images/paper.png", id="paperimg" ></div>
-                <div id="scissors"><img src="images/scissors.png", id="scissorimg"></div>
+                <div id="rock"><img onmouseover="bigImg(this)", onmouseout="normalImg(this)", src="images/rock.png", id="rockimg"></div>
+                <div id="paper"><img onmouseover="bigImg(this)", onmouseout="normalImg(this)", src="images/paper.png", id="paperimg" ></div>
+                <div id="scissors"><img onmouseover="bigImg(this)", onmouseout="normalImg(this)", src="images/scissors.png", id="scissorimg"></div>
             </div>
         </div>
         <div id="winFrame">

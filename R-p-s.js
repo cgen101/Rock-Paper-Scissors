@@ -39,9 +39,7 @@ function playRound (computerChoice, userChoice) {
         //All cases where user wins
         switch (userChoice) { 
             case 'rock': 
-                if (computerChoice == 'scissors') {
-
-                    return 2;}
+                if (computerChoice == 'scissors') {return 2;}
             break; 
 
             case 'paper': 
@@ -153,6 +151,16 @@ function showEnd(whoWon) {
         cpuChoice.innerHTML = '';
         gamePage.style.display = "grid";
     }); 
+}
+
+function bigImg(x) {
+    x.style.height = "200px";
+    x.style.width = "200px";
+}
+
+function normalImg(x) {
+    x.style.height = "175px";
+    x.style.width = "175px";
 }
 
 
