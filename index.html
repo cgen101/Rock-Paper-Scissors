@@ -8,19 +8,29 @@
         <link href="RPS-style.css" rel="stylesheet">
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+            @import url("https://fonts.googleapis.com/css?family=Raleway:900&display=swap");
         </style>
     </head>
     
     <body>
         <div id="lobbyPage">
-            <h1 id="title">Rock Paper Scissors</h1>
-            <h2 id="subtitle">Face off against our computer overlords!</h2>
-            <p id="rules">You know the rules...
-                Rock beats scissors 
-                Paper beats rock
-                Scissors beats paper
-            </p> 
-            <button id="start">fight for humanity</button>
+                <div id="container">
+                    <span id="text1"></span>
+                    <span id="text2"></span>
+                </div>
+                
+                <svg id="filters">
+                    <defs>
+                        <filter id="threshold">
+                            <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0
+                                0 1 0 0 0
+                                0 0 1 0 0
+                                0 0 0 255 -140" />
+                        </filter>
+                    </defs>
+                </svg>
+
+                <button id="start">shoot</button>
         </div>
         <div class="gameContainer", id="gamePage">
             <div class="scores">

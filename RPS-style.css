@@ -15,6 +15,39 @@ body, html {
     grid-row-gap: 0px;
 }  
 
+#container {
+    padding-top: 200px;
+    margin: auto;
+    width: 100vw;
+    height: 80pt;
+    top: 0;
+    bottom: 0;
+
+    filter: url(#threshold) blur(0.6px);
+}
+
+#text1,
+#text2 {
+    position: absolute;
+    width: 100%;
+
+    font-family: "Raleway", sans-serif;
+    font-size: 80pt;
+
+    text-align: center;
+
+    user-select: none;
+}
+
+#lobbyPage { 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
 .scores {
     grid-area: 1 / 1 / 2 / 8; 
     width: 100%;
