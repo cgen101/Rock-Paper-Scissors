@@ -151,8 +151,8 @@ function showEnd(whoWon) {
         endPage.style.display = "none";
         uScore.textContent = userWins; 
         cpuScore.textContent = compWins;
-        userChoice.innerHTML = ''; 
-        cpuChoice.innerHTML = '';
+        userChoice.innerHTML= '<img src="images/monk.png">';
+        cpuChoice.innerHTML= '<img src="images/robot.png">';
         gamePage.style.display = "grid";
     }); 
 }
